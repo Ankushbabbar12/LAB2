@@ -28,3 +28,13 @@ let success =
     |> List.map (fun team -> team.Name)
 
 printfn "Successful Teams: %A" success
+
+
+let cal team =
+    float team.Stats.Wins / float (team.Stats.Wins + team.Stats.Losses) * 100.0
+
+let percentage =
+    teams
+    |> List.map (fun team -> (team.Name, cal team))
+
+printfn "Success Percentages: %A" percentage
